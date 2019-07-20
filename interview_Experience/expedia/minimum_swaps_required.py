@@ -1,9 +1,3 @@
-# Complete the 'minimumSwaps' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts INTEGER_ARRAY popularity as parameter.
-#
-
 def minimumSwaps(popularity):
     N = len(popularity)
 
@@ -13,7 +7,7 @@ def minimumSwaps(popularity):
     p_pos = [*enumerate(popularity)]
 
     # sort in descending order
-    p_pos.sort(key= lambda p: p[1], reverse=True)
+    p_pos = p_pos.sort(key= lambda p: p[1], reverse=True)
 
     # dictionary to keep visited information
     vis = { i : False for i in range(N)}
@@ -41,7 +35,3 @@ def minimumSwaps(popularity):
             res += (cycle_len -1)
 
         return res
-
-if __name__ == "__main__":
-    assert minimumSwaps([3,4,1,2]) == 2
-    print('done')

@@ -1,0 +1,42 @@
+Number of Pies
+A bakery bakes various different types of pies. It’s a well known bakery whose pies are sent to places far and near.
+
+The bakery bakes M pies each day with different weights. Every evening, a Head Baker receives orders for N pounds of pies. The bakery can choose to completely fulfill the orders or choose to not fulfill an order at all.
+
+Our objective is to help the Head Baker decide if the total order quantity received can be fulfilled or not.
+
+Note that pies baked must be delivered as a whole and can not be split into pieces.
+
+Constraints
+
+1 <= T <= 400
+
+1 <= M <= 1000
+
+1 <= weight of each pie <= 1000
+
+1 <= N <= 10000
+
+Input Format
+
+First line contains T which indicates the number of days for which the delivery is to be made.
+Second line contains M + 1 space separated integers in which the first integer denotes the
+number of pies to be made in one day and the following M integers denote the weight of each pie.
+-Third line contains N which indicates the weight of pie in pounds which needs to delivered.
+Output Format
+
+Output YES if the delivery for that day can be made, otherwise NO for each test case.
+Sample Input
+
+3
+4 12 2 15 9
+11
+7 20 13 5 8 2 11 3
+23
+3 7 4 1
+6
+Sample Output
+
+YES
+YES
+NO
