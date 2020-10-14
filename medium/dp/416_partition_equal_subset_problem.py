@@ -12,43 +12,50 @@
 # 3. so this boils to do the 0/1 knapsack with capacity = sum/2
 # 4. Each element should be part of a subset with sum = totalsum/2 then true, else false
 
+from typing import List
 
-# class Solution:
-#     def canPartition(self, nums) -> bool:
-#         if not nums:
-#             return False
+def can_partition(nums, N, index, cur_total, target_total):
+    if cur_total == target_total:
+        return True
 
-#         total_sum = sum(nums)
-#         if total_sum % 2 != 0:
-#             return False
+    if index >= N or cur_total > target_total:
+        return False
 
-#         N = len(nums)
-#         return self.can_partition(nums, N, 0, 0, total_sum)
+    if can_partition(nums, N, index+1, cur_total+nums[index], target_total):
+        return True
 
-#     def can_partition(self, nums, N, cur_sum, index, total):
-#         if cur_sum == total/2:
-#             return True
+    next_index = index + 1
+    while next_index < N and nums[next_index] == nums[index]:
+        next_index += 1
 
-#         if index >= N or cur_sum > total/2:
-#             return False
+    # dont consider...
+    return can_partition(nums, N, next_index, cur_total, target_total)
 
-#         consider = self.can_partition(nums, N, cur_sum, index + 1, total)
-#         dont_consider = self.can_partition(nums, N, cur_sum + nums[index], index + 1, total)
-
-#         return consider or dont_consider
-
+# def can_partition(nums, N, index, cur_total, target_total):
+#     dp = [[False for j in range(target_total+1)] for i in range(N+1)]
+#     for i in range(1,N+1):
+#         for j in range(1, target_total+1):
+#             cur_val = nums[i-1]
+#             if j < cur_val:
+#                 dp[i][j] = dp[i-1][j]
+#             elif j == cur_val:
+#                 dp[i][j] = True
+#             else:
+#                 dp[i][j] = dp[i-1][j] or dp[i-1][j - cur_val]
+#     return dp[-1][-1]
 
 class Solution:
-    def canPartition(self, nums) -> bool:
+    def canPartition(self, nums: List[int]) -> bool:
         if not nums:
             return False
-
-        total_sum = sum(nums)
-        if total_sum % 2 != 0:
+        N = len(nums)
+        total = sum(nums)
+        if total % 2 != 0:
             return False
 
-        N = len(nums)
-        pass
+        return can_partition(nums, N, index=0, cur_total=0, target_total=total//2)
 
 if __name__ == "__main__":
-    print('dine')
+    solution = Solution()
+    assert solution.canPartition([1,5,11,5]) == True
+    print('done')

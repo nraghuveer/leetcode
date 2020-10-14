@@ -1,8 +1,4 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#36127B",
-        "titleBar.activeBackground": "#4C19AD",
-        "titleBar.activeForeground": "#FBFAFE"
-    },
-    "python.pythonPath": "C:\\Users\\91944\\.virtualenvs\\leetcode-Zbx2sk5F\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\91944\\.virtualenvs\\leetcode-Zbx2sk5F\\Scripts\\python.exe",
+    "python.formatting.provider": "black"
 }

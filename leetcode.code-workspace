@@ -10,6 +10,8 @@
 			"activityBar.background": "#36127B",
 			"titleBar.activeBackground": "#4C19AD",
 			"titleBar.activeForeground": "#FBFAFE"
-		}
+		},
+		"workbench.preferredDarkColorTheme": "Gruvbox Dark Hard",
+		"workbench.preferredHighContrastColorTheme": "Gruvbox Light Hard"
 	}
 }
